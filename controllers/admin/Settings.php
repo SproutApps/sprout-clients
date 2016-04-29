@@ -72,7 +72,12 @@ class SC_Settings extends SC_Controller {
 			self::load_view( 'admin/whats-new/'.$_GET['whats-new'].'.php', array() );
 			return;
 		}
-		self::load_view( 'admin/sprout-clients-dashboard.php', array() );
+		if ( SC_FREE_TEST ) {
+			self::load_view( 'admin/sprout-clients-dashboard-free.php', array() );
+		} else {
+			self::load_view( 'admin/sprout-clients-dashboard.php', array() );
+		}
+
 	}
 
 

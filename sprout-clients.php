@@ -10,7 +10,6 @@
  * Domain Path: languages
 */
 
-
 /**
  * SC directory
  */
@@ -38,9 +37,40 @@ define( 'SC_SUPPORTED_WP_VERSCON', version_compare( get_bloginfo( 'version' ), '
  */
 define( 'SC_SUPPORTED_PHP_VERSCON', version_compare( phpversion(), '5.2.4', '>=' ) );
 
+function sc_fs() {
+
+	global $sc_fs;
+
+	if ( ! isset( $sc_fs ) ) {
+		// Include Freemius SDK.
+		require_once SC_PATH . '/controllers/updates/freemius-sdk/start.php';
+
+		$sc_fs = fs_dynamic_init( array(
+			'id'                => '277',
+			'slug'              => 'sprout-clients',
+			'public_key'        => 'pk_c8de69aa4314d4663bf5ee5a47e76',
+			'is_premium'        => false,
+			'has_addons'        => false,
+			'has_paid_plans'    => false,
+			'menu'              => array(
+			'slug'       => 'sprout-apps/settings',
+			'first-path' => 'admin.php?page=sprout-apps/sprout_client_settings&tab=sc_getting_started',
+			'account'    => false,
+			'contact'    => false,
+			'support'    => false,
+			),
+		) );
+	}
+
+	return $sc_fs;
+}
+// Init Freemius.
+sc_fs();
+
 /**
  * Load plugin
  */
+define( 'SC_FREE_TEST', true );
 require_once SC_PATH . '/load.php';
 
 /**

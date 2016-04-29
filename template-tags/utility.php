@@ -82,7 +82,7 @@ if ( ! function_exists( 'si_format_address' ) ) :
 			return '';
 		}
 		$lines = array();
-		if ( ! empty($address['first_name']) || ! empty($address['last_name']) ) {
+		if ( ! empty( $address['first_name'] ) || ! empty( $address['last_name'] ) ) {
 			$lines[] = $address['first_name'].' '.$address['last_name'];
 		}
 		if ( ! empty( $address['street'] ) ) {
@@ -127,6 +127,42 @@ function sc_get_users_full_name( $user_id = 0 ) {
 	return $name;
 }
 
+
+/**
+ * Purchase links for upgrades
+ */
+
+/**
+ * URL to purchase this app
+ * @return string
+ */
+function sc_purchase_link( $url = '', $campaign = 'sc-free' ) {
+	echo sc_get_purchase_link( $url, $campaign );
+}
+
+/**
+ * URL to purchase this app
+ * @return string
+ */
+function sc_get_purchase_link( $url = '', $campaign = 'sc-free' ) {
+	if ( $url == '' ) {
+		$url = 'https://sproutapps.co/sprout-clients/';
+	}
+	$url = add_query_arg( array( 'utm_medium' => 'link', 'utm_campaign' => $campaign, 'utm_source' => urlencode( home_url() ) ), $url );
+	return apply_filters( 'sc_get_purchase_link', esc_url_raw( $url ) );
+}
+
+/**
+ * URL to purchase this app
+ * @return string
+ */
+function sc_get_sa_link( $url = '', $campaign = 'sc-free' ) {
+	if ( $url == '' ) {
+		$url = 'https://sproutapps.co/';
+	}
+	$url = add_query_arg( array( 'utm_medium' => 'link', 'utm_campaign' => $campaign, 'utm_source' => urlencode( home_url() ) ), $url );
+	return apply_filters( 'sc_get_sa_link', esc_url_raw( $url ) );
+}
 
 /////////////////////
 // Developer Tools //
@@ -195,11 +231,9 @@ if ( ! function_exists( 'pp' ) ) {
 			foreach ( $vars as $var ) {
 				if ( is_bool( $var ) ) {
 					$msgs[] = ( $var ? 'true' : 'false' );
-				}
-				elseif ( is_scalar( $var ) ) {
+				} elseif ( is_scalar( $var ) ) {
 					$msgs[] = $var;
-				}
-				else {
+				} else {
 					switch ( $func ) {
 						case 'print_r':
 						case 'var_export':

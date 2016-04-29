@@ -16,24 +16,28 @@ Properly leveraging your contact lists isn’t sending out a single email to the
 
 Our mission at [Sprout Apps](https://sproutapps.co/?utm_medium=link&utm_campaign=free&utm_source=wordpress.org) is to build a suite of apps (aka plugins) to help us all work more efficiently & provide complete control the WordPress way. Our latest Sprout Apps are Sprout Invoices and Help Scout Desk, with many more to come.
 
-= Create Leads, Sprout Clients =
+== Create Leads, Sprout Clients ==
 
-*Scheduled Messaging*
+= Scheduled Messaging =
+
 Write to your leads/clients now and have them delivered later. Meet someone new and want to follow-up in a couple weeks, now there's no forgetting. Version 2.0
 
-*Engagements*
+= Engagements =
+
 Sometimes you meet your clients or create specific engagements. Sprout Clients wants to tie those engagements to your clients for reference and automation. Version 2.0
 
-*Relationship Building*
+= Relationship Building =
+
 The premise of "managing" your contacts is to build relationships. Sprout Clients wants to make the process of building those relationships easier and less time consuming.
 
-*Sprout App Integrations with Sprout Invoices*
+= Sprout App Integrations with Sprout Invoices =
+
 Regardless of this being a standalone app the integration compliments Sprout Invoices very well. Future integrations with Help Scout Desk, and more are planned.
 
-*Built the WordPress Way*
+= Built the WordPress Way =
 Plenty of filters and actions allow you to hook into Sprout Clients and alter whatever you'd like or build some awesome features beyond what we have planed for the future.
 
-*Awesome Support*
+= Awesome Support =
 The results of our happiness report show people love our support, check it out on the Sprout Invoices page — we strive for happy!
 
 Make sure to review the [Sprout Clients](https://sproutapps.co/sprout-clients/?utm_medium=link&utm_campaign=free&utm_source=wordpress.org) features page for more detailed information. As well as the full featured [demo](https://sproutapps.co/demo/playground).

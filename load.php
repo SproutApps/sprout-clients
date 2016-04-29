@@ -27,8 +27,10 @@ function sprout_clients_load() {
 	// models
 	require_once SC_PATH.'/models/_Model.php';
 	require_once SC_PATH.'/models/Client.php';
-	require_once SC_PATH.'/models/Engagement.php';
-	require_once SC_PATH.'/models/Message.php';
+	if ( file_exists( SC_PATH.'/models/Engagement.php' ) ) {
+		require_once SC_PATH.'/models/Engagement.php';
+		require_once SC_PATH.'/models/Message.php';
+	}
 	require_once SC_PATH.'/models/Record.php';
 
 	// controllers
@@ -50,23 +52,33 @@ function sprout_clients_load() {
 	require_once SC_PATH.'/controllers/history/Client_History.php';
 	require_once SC_PATH.'/controllers/history/Engagement_History.php';
 	require_once SC_PATH.'/controllers/history/SI_History.php';
-	// controllers -- engagments
-	require_once SC_PATH.'/controllers/engagements/Engagements.php';
-	require_once SC_PATH.'/controllers/engagements/Engagements_Edit.php';
-	require_once SC_PATH.'/controllers/engagements/Engagements_Admin_Table.php';
-	require_once SC_PATH.'/controllers/engagements/Engagements_AJAX.php';
-	require_once SC_PATH.'/controllers/engagements/Engagements_Client.php';
-	require_once SC_PATH.'/controllers/engagements/Engagements_Tax.php';
-	// controllers -- messages
-	require_once SC_PATH.'/controllers/messages/Messages.php';
-	require_once SC_PATH.'/controllers/messages/Messages_Admin.php';
-	require_once SC_PATH.'/controllers/messages/Messages_Template.php';
-	require_once SC_PATH.'/controllers/messages/Messages_Route.php';
+	if ( ! SC_FREE_TEST && file_exists( SC_PATH.'/controllers/engagements/Engagements.php' ) ) {
+		// controllers -- engagments
+		require_once SC_PATH.'/controllers/engagements/Engagements.php';
+		require_once SC_PATH.'/controllers/engagements/Engagements_Edit.php';
+		require_once SC_PATH.'/controllers/engagements/Engagements_Admin_Table.php';
+		require_once SC_PATH.'/controllers/engagements/Engagements_AJAX.php';
+		require_once SC_PATH.'/controllers/engagements/Engagements_Client.php';
+		require_once SC_PATH.'/controllers/engagements/Engagements_Tax.php';
+	}
+	if ( ! SC_FREE_TEST && file_exists( SC_PATH.'/controllers/messages/Messages.php' ) ) {
+		// controllers -- messages
+		require_once SC_PATH.'/controllers/messages/Messages.php';
+		require_once SC_PATH.'/controllers/messages/Messages_Admin.php';
+		require_once SC_PATH.'/controllers/messages/Messages_Template.php';
+		require_once SC_PATH.'/controllers/messages/Messages_Route.php';
+	}
 
 	require_once SC_PATH.'/controllers/records/Internal_Records.php';
 	require_once SC_PATH.'/controllers/records/Records_Admin_Table.php';
 
-	require_once SC_PATH.'/controllers/updates/Updates.php';
+	// updates
+	if ( SC_PATH.'/controllers/updates/Updates.php' ) {
+		require_once SC_PATH.'/controllers/updates/Updates.php';
+	}
+	if ( file_exists( SC_PATH.'/controllers/updates/Free_License.php' ) ) {
+		require_once SC_PATH.'/controllers/updates/Free_License.php';
+	}
 
 	// template-tags
 	require_once SC_PATH.'/template-tags/sprout-clients.php';
@@ -125,6 +137,14 @@ function sprout_clients_load() {
 
 	SC_Settings::init();
 
+		// updates
+	if ( ! SC_FREE_TEST && class_exists( 'SC_Updates' ) ) {
+		SC_Updates::init();
+	}
+	if ( class_exists( 'SC_Free_License' ) ) {
+		SC_Free_License::init();
+	}
+
 	/**
 	 * Clients
 	 */
@@ -135,29 +155,31 @@ function sprout_clients_load() {
 	SC_Clients_AJAX::init();
 	Sprout_Clients_Tax::init();
 
-	/**
-	 * Engagements
-	 */
-	Sprout_Engagements::init();
-	Sprout_Engagements_Edit::init();
-	Sprout_Engagements_Admin_Table::init();
-	Sprout_Engagements_AJAX::init();
-	Sprout_Engagements_Client::init();
-	Sprout_Engagements_Tax::init();
+	if ( ! SC_FREE_TEST && class_exists( 'Sprout_Engagements' ) ) {
+		/**
+		 * Engagements
+		 */
+		Sprout_Engagements::init();
+		Sprout_Engagements_Edit::init();
+		Sprout_Engagements_Admin_Table::init();
+		Sprout_Engagements_AJAX::init();
+		Sprout_Engagements_Client::init();
+		Sprout_Engagements_Tax::init();
+	}
 
 	SC_Client_History::init();
 	SC_Engagement_History::init();
 	SC_Invoices_History::init();
 
-	/**
-	 * Messaging
-	 */
-	Sprout_Clients_Messages::init();
-	Sprout_Clients_Messages_Admin::init();
-	Sprout_Clients_Messages_Template::init();
-	Sprout_Clients_Messages_Route::init();
-
-	SC_Updates::init();
+	if ( ! SC_FREE_TEST && class_exists( 'Sprout_Clients_Messages' ) ) {
+		/**
+		 * Messaging
+		 */
+		Sprout_Clients_Messages::init();
+		Sprout_Clients_Messages_Admin::init();
+		Sprout_Clients_Messages_Template::init();
+		Sprout_Clients_Messages_Route::init();
+	}
 
 	SC_Admin_Capabilities::init();
 

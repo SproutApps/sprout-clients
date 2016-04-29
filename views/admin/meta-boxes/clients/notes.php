@@ -14,3 +14,11 @@
 		</div>
 	</p>
 </div>
+
+<?php if ( SC_FREE_TEST ) : // TODO ?>
+	<style type="text/css">
+		#client_users .submit_user_note {
+			margin-top: -6px;
+		}
+	</style>
+<?php endif ?>

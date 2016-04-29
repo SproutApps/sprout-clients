@@ -1,34 +1,32 @@
 <div id="si_dashboard" class="wrap about-wrap">
 
-	<h1><?php printf( __( 'Create Leads, <a href="%s">Sprout Clients</a>!' , 'sprout-invoices' ), self::PLUGIN_URL, self::SC_VERSION ); ?></h1>
+	<h1><?php printf( __( 'Thanks for using <a href="%s">Sprout Clients</a>!', 'sprout-invoices' ), self::PLUGIN_URL, self::SC_VERSION ); ?></h1>
 
-	<div class="about-text"><?php _e( 'Thank you for using Sprout Clients at such an early stage of the development process &mdash; your feedback during this time is critical to it\'s success.' , 'sprout-invoices' ) ?></div>
-
-
-	<h2 class="nav-tab-wrapper">
-		<?php do_action( 'sprout_settings_tabs' ); ?>
-	</h2>
+	<div class="about-text"><?php printf( __( 'The future of <a href="%s">Sprout Clients</a> relies on happy customers supporting Sprout Apps by purchasing upgraded versions. If you like this free version of Sprout Clients please consider <a href="%s">purchasing an upgrade</a>.', 'sprout-invoices' ), self::PLUGIN_URL, sc_get_purchase_link() ); ?></div>
 
 	<div class="welcome_content clearfix">
 		<div class="license-overview">
-			<div class="activate_message clearfix">
-				<div class="activation_msg clearfix">
-					 <p>
-						<h4><?php _e( 'First Things First...' , 'sprout-invoices' ) ?></h4>
-						<?php _e( 'An active license for Sprout Clients provides support and updates. By activating your license, you can get automatic plugin updates from the WordPress dashboard. Updates provide you with the latest bug fixes and the new features each major release brings.' , 'sprout-invoices' ) ?></p>
-				</div>
-				<div class="activation_inputs clearfix">
-					<input type="text" name="<?php echo SC_Updates::LICENSE_KEY_OPTION ?>" id="<?php echo SC_Updates::LICENSE_KEY_OPTION ?>" value="<?php echo SC_Updates::license_key() ?>" class="fat-input <?php echo 'license_'.SC_Updates::license_status() ?>" size="40" class="text-input">
-					<?php if ( SC_Updates::license_status() != false && SC_Updates::license_status() == 'valid' ) : ?>
-						<button id="sc_activate_license" class="button button-large" disabled="disabled"><?php _e( 'Activate License' , 'sprout-invoices' ) ?></button> 
-						<button id="sc_deactivate_license" class="button button-large"><?php _e( 'Deactivate License' , 'sprout-invoices' ) ?></button>
-					<?php else : ?>
-						<button id="sc_activate_license" class="button button-primary button-large"><?php _e( 'Activate License' , 'sprout-invoices' ) ?></button>
-					<?php endif ?>
-					<div id="license_message" class="clearfix"></div>
-				</div>
-			</div>
 
+			<?php /*/ ?>
+			<?php if ( false === SC_Free_License::license_status() ) : ?>
+				<div class="activate_message clearfix">
+					<div class="activation_msg clearfix">
+						 <h4><?php _e( 'Get a free Sprout Apps license instantly...', 'sprout-invoices' ) ?></h4>
+					</div>
+					<div class="activation_inputs clearfix">
+						<input type="text" name="<?php echo SI_Free_License::LICENSE_KEY_OPTION ?>" id="<?php echo SI_Free_License::LICENSE_KEY_OPTION ?>" value="<?php echo SI_Free_License::license_key() ?>" class="text-input fat-input <?php echo 'license_'.SI_Free_License::license_status() ?>" size="40" placeholder="<?php _e( 'Enter your email.', 'sprout-invoices' ) ?>">
+							<button id="free_license" class="button button-primary button-large"><?php _e( 'Get License', 'sprout-invoices' ) ?></button>
+						<div id="license_message" class="clearfix"></div>
+					</div>
+
+					<div class="activation_msg clearfix">
+						<?php printf( __( 'Generating a free license key is not required but takes seconds! Your email will be used to create a unique Sprout Apps license key that will enable future features (i.e. easy add-on installs from <a href="%s">https://sproutapps.co</a>).', 'sprout-invoices' ), sc_get_sa_link() ) ?></p>
+					</div>
+				</div>
+			<?php endif ?>
+			<?php /**/ ?>
+
+			<div class="upgrade_message clearfix"><p><strong>Upgrade Discount Available:</strong> Write a <a href="https://wordpress.org/support/view/plugin-reviews/sprout-clients">plugin review</a> about this free version and <a href="<?php echo sc_get_sa_link( 'https://sproutapps.co/sprout-invoices/sprout-invoices-discount-code/', 'plugin-review' ) ?>">send us the link</a>.</p></div>
 
 			<h2 class="headline_callout"><?php _e( 'Welcome to Sprout Clients' , 'sprout-invoices' ) ?></h2>
 
@@ -41,12 +39,12 @@
 				<div class="col-2">
 					<span class="flow_icon icon-lightsaber"></span>
 					<h4><?php _e( 'Jedi Automation Tricks' , 'sprout-invoices' ); ?></h4>
-					<p><?php _e( 'Write to your leads/clients now and have them delivered later. Meet someone new and want to follow-up in a couple weeks, now there\'s no forgetting.' , 'sprout -invoices' ); ?></p>
+					<p><?php _e( 'Write to your leads/clients now and have them delivered later. Meet someone new and want to follow-up in a couple weeks, now there\'s no forgetting. <b>(pro license)</b>' , 'sprout-invoices' ); ?></p>
 				</div>
 				<div class="col-3 last-feature">
 					<span class="flow_icon icon-sproutapps-invoices"></span>
-					<h4><?php _e( 'Engage with your Contacts', 'sprout -invoices' ); ?></h4>
-					<p><?php _e( 'Sometimes you meet your clients or create specific engagements. Sprout Clients wants to tie those engagements to your clients for reference and automation.', 'sprout-invoices' ); ?></p>
+					<h4><?php _e( 'Engage with your Contacts', 'sprout-invoices' ); ?></h4>
+					<p><?php _e( 'Sometimes you meet your clients or create specific engagements. Sprout Clients wants to tie those engagements to your clients for reference and automation. <b>(pro license)</b>', 'sprout-invoices' ); ?></p>
 				</div>
 			</div>
 
