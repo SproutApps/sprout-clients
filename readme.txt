@@ -12,11 +12,18 @@ Properly leveraging your contact lists isn’t sending out a single email to the
 
 == Description ==
 
+> <strong>Pre-release</strong><br>
+> Here's your warning that they may be some bugs in this free version. I'm working hard on the pro version's release at the moment and needed to get this "out there" quickly.
+
 = Sprout Clients – Premium WordPress CRM & Lead Management Plugin =
 
 Our mission at [Sprout Apps](https://sproutapps.co/?utm_medium=link&utm_campaign=free&utm_source=wordpress.org) is to build a suite of apps (aka plugins) to help us all work more efficiently & provide complete control the WordPress way. Our latest Sprout Apps are Sprout Invoices and Help Scout Desk, with many more to come.
 
-== Create Leads, Sprout Clients ==
+> The future of [Sprout Clients](https://sproutapps.co/sprout-clients/?utm_medium=link&utm_campaign=free&utm_source=wordpress.org) relies on happy customers supporting Sprout Apps by purchasing upgraded versions. If you like this free version of Sprout Clients please consider [purchasing an upgrade](https://sproutapps.co/sprout-clients/?utm_medium=link&utm_campaign=free&utm_source=wordpress.org).
+
+= Create Leads, Sprout Clients =
+
+Properly leveraging your contact lists isn’t sending out a single email to the entire list asking for work — instead you need to build business relationships. Managing contacts and customers shouldn’t be a burden, and  Sprout Clients wants to make the that entire process easier and less time consuming.
 
 = Scheduled Messaging =
 
