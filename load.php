@@ -50,7 +50,10 @@ function sprout_clients_load() {
 	require_once SC_PATH.'/controllers/clients/Clients_Tax.php';
 	// controllers -- history
 	require_once SC_PATH.'/controllers/history/Client_History.php';
-	require_once SC_PATH.'/controllers/history/Engagement_History.php';
+	if ( ! SC_FREE_TEST && file_exists( SC_PATH.'/controllers/history/Engagement_History.php' ) ) {
+		// controllers -- engagments
+		require_once SC_PATH.'/controllers/history/Engagement_History.php';
+	}
 	require_once SC_PATH.'/controllers/history/SI_History.php';
 	if ( ! SC_FREE_TEST && file_exists( SC_PATH.'/controllers/engagements/Engagements.php' ) ) {
 		// controllers -- engagments
@@ -98,15 +101,19 @@ function sprout_clients_load() {
 	 */
 	Sprout_Client::init();
 
-	/**
-	 * Client Model
-	 */
-	Sprout_Engagement::init();
+	if ( ! SC_FREE_TEST && class_exists( 'Sprout_Engagement' ) ) {
+		/**
+		 * Engagment Model
+		 */
+		Sprout_Engagement::init();
+	}
 
-	/**
-	 * Messages Model
-	 */
-	SC_Message::init();
+	if ( ! SC_FREE_TEST && class_exists( 'SC_Message' ) ) {
+		/**
+		 * Messages Model
+		 */
+		SC_Message::init();
+	}
 
 	/**
 	 * Shared Models
@@ -168,7 +175,9 @@ function sprout_clients_load() {
 	}
 
 	SC_Client_History::init();
-	SC_Engagement_History::init();
+	if ( ! SC_FREE_TEST && class_exists( 'SC_Engagement_History' ) ) {
+		SC_Engagement_History::init();
+	}
 	SC_Invoices_History::init();
 
 	if ( ! SC_FREE_TEST && class_exists( 'Sprout_Clients_Messages' ) ) {

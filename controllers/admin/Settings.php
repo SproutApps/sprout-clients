@@ -92,8 +92,10 @@ class SC_Settings extends SC_Controller {
 		if ( get_option( 'sc_do_activation_redirect', false ) ) {
 			// Flush the rewrite rules after SI is activated.
 			flush_rewrite_rules();
-			delete_option( 'sc_do_activation_redirect' );
-			wp_redirect( admin_url( 'admin.php?page=' . self::APP_DOMAIN . '/sprout_client_settings&tab=sc_getting_started' ) );
+			if ( ! SC_FREE_TEST ) {
+				delete_option( 'sc_do_activation_redirect' );
+				wp_redirect( admin_url( 'admin.php?page=' . self::APP_DOMAIN . '/sprout_client_settings&tab=sc_getting_started' ) );
+			}
 		}
 	}
 }
