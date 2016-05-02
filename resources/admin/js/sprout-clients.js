@@ -81,8 +81,9 @@
 					$widget.html( data.view );
 				}
 
+				$('.sc_spinner').hide();
 				sc.clientEdit.redactor_init();
-				//sc.clientEdit.select2_init();
+				sc.clientEdit.select2_init();
 				return data;
 			}
 		);
@@ -312,6 +313,7 @@
 		$('#associated_users').live('change', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
+			$( this ).after(_sprout_clients.spinner);
 			sc.clientEdit.associateUsers( $( this ) );
 		});
 
