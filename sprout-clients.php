@@ -4,9 +4,9 @@
  * Plugin URI: https://sproutapps.co/sprout-clients/
  * Description: Contact relationship management to increase productivity in gaining clients and business relationships.
  * Author: Sprout Apps
- * Version: 2.0.2
+ * Version: 2.0.3
  * Author URI: https://sproutapps.co
- * Text Domain: sprout-apps
+ * Text Domain: sprout-invoices
  * Domain Path: languages
 */
 
@@ -98,30 +98,37 @@ add_action( 'plugins_loaded', 'sprout_clients_load', 110 ); // load up after Spr
  * @ignore
  */
 register_activation_hook( __FILE__, 'sc_plugin_activated' );
-function sc_plugin_activated() {
-	sprout_clients_load(); // load before hook
-	do_action( 'sc_plugin_activation_hook' );
+if ( ! function_exists( 'sc_plugin_activated' ) ) {
+	function sc_plugin_activated() {
+		sprout_clients_load(); // load before hook
+		do_action( 'sc_plugin_activation_hook' );
+	}
 }
+
 /**
  * do_action when plugin is deactivated.
  * @package Sprout_Clients
  * @ignore
  */
 register_deactivation_hook( __FILE__, 'sc_plugin_deactivated' );
-function sc_plugin_deactivated() {
-	//sprout_clients_load(); // load before hook
-	do_action( 'sc_plugin_deactivation_hook' );
+if ( ! function_exists( 'sc_plugin_deactivated' ) ) {
+	function sc_plugin_deactivated() {
+		//sprout_clients_load(); // load before hook
+		do_action( 'sc_plugin_deactivation_hook' );
+	}
 }
 
 /**
  * Deactivate plugin
  */
-function sc_deactivate_plugin() {
-	if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
-		// Fire hooks
-		do_action( 'sc_plugin_deactivation_hook' );
-		require_once ABSPATH.'/wp-admin/includes/plugin.php';
-		deactivate_plugins( __FILE__ );
+if ( ! function_exists( 'sc_deactivate_plugin' ) ) {
+	function sc_deactivate_plugin() {
+		if ( is_admin() && ( ! defined( 'DOING_AJAX' ) || ! DOING_AJAX ) ) {
+			// Fire hooks
+			do_action( 'sc_plugin_deactivation_hook' );
+			require_once ABSPATH.'/wp-admin/includes/plugin.php';
+			deactivate_plugins( __FILE__ );
+		}
 	}
 }
 
@@ -129,11 +136,13 @@ function sc_deactivate_plugin() {
  * Error messaging for compatibility check.
  * @return string error messages
  */
-function sc_compatibility_check_fail_notices() {
-	if ( ! SC_SUPPORTED_WP_VERSCON ) {
-		printf( '<div class="error"><p><strong>Sprout Clients</strong> requires WordPress %s or higher. Please upgrade WordPress and activate the Sprout Clients Plugin again.</p></div>', SC_SUPPORTED_WP_VERSCON );
-	}
-	if ( ! SC_SUPPORTED_PHP_VERSCON ) {
-		printf( '<div class="error"><p><strong>Sprout Clients</strong> requires PHP verscon %s or higher to be installed on your server. Talk to your web host about uscng a secure verscon of PHP.</p></div>', SC_SUPPORTED_PHP_VERSCON );
+if ( ! function_exists( 'sc_compatibility_check_fail_notices' ) ) {
+	function sc_compatibility_check_fail_notices() {
+		if ( ! SC_SUPPORTED_WP_VERSCON ) {
+			printf( '<div class="error"><p><strong>Sprout Clients</strong> requires WordPress %s or higher. Please upgrade WordPress and activate the Sprout Clients Plugin again.</p></div>', SC_SUPPORTED_WP_VERSCON );
+		}
+		if ( ! SC_SUPPORTED_PHP_VERSCON ) {
+			printf( '<div class="error"><p><strong>Sprout Clients</strong> requires PHP verscon %s or higher to be installed on your server. Talk to your web host about uscng a secure verscon of PHP.</p></div>', SC_SUPPORTED_PHP_VERSCON );
+		}
 	}
 }
