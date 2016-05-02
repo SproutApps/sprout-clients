@@ -4,7 +4,7 @@ Donate link: https://sproutapps.co/
 Tags: crm, leads, client management, invoicing, emailing, messaging
 Requires at least: 4.0
 Tested up to: 4.5
-Stable tag: 2.0.3
+Stable tag: 2.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -72,15 +72,15 @@ Woocommerce, Stats dashboard, time tracking updates and more.
 
 == Changelog ==
 
-= 2.0.3 =
+= 2.0.4 =
 
 * FIX: Compat issues
 
 = 2.0 =
 
-* NEW: Enagements (paid version)
+* NEW: Engagements (paid version)
 * NEW: Messages (paid version)
-* NEW: Imporved categorization
+* NEW: Improved categorization
 * NEW: Free version
 
 == Support ==

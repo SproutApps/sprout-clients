@@ -122,7 +122,7 @@ abstract class SC_Controller extends Sprout_Clients {
 		$screen = get_current_screen();
 		$screen_post_type = str_replace( 'edit-', '', $screen->id );
 		if (
-			! in_array( $screen_post_type, array( Sprout_Client::POST_TYPE, Sprout_Engagement::POST_TYPE ) ) &&
+			! in_array( $screen_post_type, array( Sprout_Client::POST_TYPE, 'sa_engagement' ) ) &&
 			strpos( $screen->base, self::APP_DOMAIN ) === false
 			) {
 			return;
@@ -143,7 +143,7 @@ abstract class SC_Controller extends Sprout_Clients {
 			wp_enqueue_style( 'redactor' );
 		}
 
-		if ( Sprout_Engagement::POST_TYPE === $screen_post_type ) {
+		if ( 'sa_engagement' === $screen_post_type ) {
 			wp_enqueue_script( 'sprout_engagements' );
 		}
 
@@ -152,7 +152,7 @@ abstract class SC_Controller extends Sprout_Clients {
 			'spinner' => '<span class="sc_spinner sc_inline_spinner"></span>',
 		);
 
-		if ( in_array( $screen_post_type, array( Sprout_Client::POST_TYPE, Sprout_Engagement::POST_TYPE ) ) ) {
+		if ( in_array( $screen_post_type, array( Sprout_Client::POST_TYPE, 'sa_engagement' ) ) ) {
 			if ( ! SC_FREE_TEST && file_exists( SC_PATH.'/resources/admin/plugins/redactor/redactor.min.js' ) ) {
 				$_sprout_clients['redactor'] = true;
 				wp_enqueue_script( 'redactor' );
