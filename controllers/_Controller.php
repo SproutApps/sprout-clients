@@ -281,6 +281,45 @@ abstract class SC_Controller extends Sprout_Clients {
 	// Utility //
 	//////////////
 
+	public static function is_sc_admin() {
+		$bool = false;
+		if ( ! is_admin() || ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
+			return $bool;
+		}
+
+		// Options
+		if ( isset( $_GET['page'] ) && strpos( $_GET['page'] , self::APP_DOMAIN ) !== false ) {
+			$bool = true;
+		}
+
+		global $current_screen;
+		if ( isset( $current_screen->id ) && strpos( $current_screen->id, self::APP_DOMAIN ) !== false ) {
+			$bool = true;
+		}
+
+		if ( ! $bool ) { // check if admin for SI post types.
+			$post_type = false;
+
+			if ( isset( $current_screen->post_type ) ) {
+				$post_type = $current_screen->post_type;
+			} else {
+				// Trying hard to figure out the post type if not yet set.
+				$post_id = isset( $_GET['post'] ) ? (int) $_GET['post'] : false;
+				if ( $post_id ) {
+					$post_type = get_post_type( $post_id );
+				} else {
+					$post_type = ( isset( $_REQUEST['post_type'] ) ) ? $_REQUEST['post_type'] : false ;
+				}
+			}
+			if ( $post_type ) {
+				if ( in_array( $post_type, array( Sprout_Client::POST_TYPE, Sprout_Engagement::POST_TYPE, SC_Message::POST_TYPE, SC_Record::POST_TYPE ) ) ) {
+					return true;
+				}
+			}
+		}
+		return apply_filters( 'is_sc_admin', $bool );
+	}
+
 	/**
 	 * Get default state options
 	 * @param  array  $args

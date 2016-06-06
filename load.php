@@ -91,6 +91,8 @@ function sprout_clients_load() {
 	require_once SC_PATH.'/template-tags/users.php';
 	require_once SC_PATH.'/template-tags/utility.php';
 
+	require_once SC_PATH.'/controllers/compat/Compatibility.php';
+
 	/**
 	 * Master Model
 	 */
@@ -191,6 +193,7 @@ function sprout_clients_load() {
 	}
 
 	SC_Admin_Capabilities::init();
+	SC_Compatibility::init();
 
 	do_action( 'sprout_clients_loaded' );
 

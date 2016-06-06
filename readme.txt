@@ -1,10 +1,10 @@
 === Sprout Clients - CRM and Lead Management ===
-Contributors: dancameron, sproutapps
+Contributors: dancameron, sproutapps, freemius
 Donate link: https://sproutapps.co/
 Tags: crm, leads, client management, invoicing, emailing, messaging
-Requires at least: 4.0
+Requires at least: 4.4
 Tested up to: 4.5
-Stable tag: 2.0.4
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,8 +12,8 @@ Properly leveraging your contact lists isn’t sending out a single email to the
 
 == Description ==
 
-> <strong>Pre-release</strong><br>
-> Here's your warning that they may be some bugs in this free version. I'm working hard on the pro version's release at the moment and needed to get this "out there" quickly.
+> <strong>Sprout Apps Family</strong><br>
+> Sprout Clients is a standalone Lead Management plugin and is complimentary to [Sprout Invoices](https://wordpress.org/plugins/sprout-invoices/), another free business centric plugin from [Sprout Apps](https://sproutapps.co/?utm_medium=link&utm_campaign=free&utm_source=wordpress.org).
 
 = Sprout Clients – Premium WordPress CRM & Lead Management Plugin =
 

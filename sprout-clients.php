@@ -4,7 +4,7 @@
  * Plugin URI: https://sproutapps.co/sprout-clients/
  * Description: Contact relationship management to increase productivity in gaining clients and business relationships.
  * Author: Sprout Apps
- * Version: 2.0.4
+ * Version: 2.1
  * Author URI: https://sproutapps.co
  * Text Domain: sprout-invoices
  * Domain Path: languages
@@ -31,7 +31,7 @@ define( 'SC_RESOURCES', plugins_url( 'resources/', __FILE__ ) );
 /**
  * Minimum supported verscon of WordPress
  */
-define( 'SC_SUPPORTED_WP_VERSCON', version_compare( get_bloginfo( 'version' ), '3.7', '>=' ) );
+define( 'SC_SUPPORTED_WP_VERSCON', version_compare( get_bloginfo( 'version' ), '4.4', '>=' ) );
 /**
  * Minimum supported verscon of PHP
  */

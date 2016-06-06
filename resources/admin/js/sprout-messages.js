@@ -10,6 +10,10 @@
 		},
 	};
 
+	sc.messageEdit.redactor_init = function() {
+		$('#message_creation_form_wrap .si_redactorize').redactor();
+	};
+
 	sc.messageEdit.createMessage = function( $button ) {
 		var $widget = $('#message_creation_form_wrap'),
 			$fields = $( "#message_creation_form :input" ).serializeArray(),
@@ -65,7 +69,7 @@
 				else {
 					$widget.html( response.data.view );
 					sc.clientEdit.select2_init();
-					sc.clientEdit.redactor_init();
+					sc.messageEdit.redactor_init();
 					$('.sc_spinner').remove();
 				}
 			}
@@ -84,7 +88,7 @@
 				else {
 					$widget.html( response.data.view );
 					sc.clientEdit.select2_init();
-					sc.clientEdit.redactor_init();
+					sc.messageEdit.redactor_init();
 					$('.sc_spinner').remove();
 				}
 			}
@@ -160,7 +164,7 @@
 
 		$('#sa_message_format').live('click', function(e) {
 			if ( $(this).is(':checked') ) {
-				sc.clientEdit.redactor_init();
+				sc.messageEdit.redactor_init();
 			}
 			else {
 				$('#sa_message_message').redactor( 'core.destroy' );
