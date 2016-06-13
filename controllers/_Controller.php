@@ -312,7 +312,7 @@ abstract class SC_Controller extends Sprout_Clients {
 				}
 			}
 			if ( $post_type ) {
-				if ( in_array( $post_type, array( Sprout_Client::POST_TYPE, Sprout_Engagement::POST_TYPE, SC_Message::POST_TYPE, SC_Record::POST_TYPE ) ) ) {
+				if ( in_array( $post_type, array( Sprout_Client::POST_TYPE, 'sa_engagement', 'sc_message', 'sa_record' ) ) ) {
 					return true;
 				}
 			}
