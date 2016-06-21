@@ -44,7 +44,7 @@ class SC_Engagement_History extends SC_Controller {
 				'weight' => 50,
 			),
 		);
-		do_action( 'sprout_meta_box', $args, Sprout_Engagement::POST_TYPE );
+		do_action( 'sprout_meta_box', $args, 'sa_engagement' );
 	}
 
 

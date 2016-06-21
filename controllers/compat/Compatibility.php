@@ -58,7 +58,7 @@ class SC_Compatibility extends SC_Controller {
 	public static function prevent_wpseo_from_being_assholes_about_private_cpts_metaboxes() {
 		if ( self::is_sc_admin() ) {
 			// Disable Yoast metabox
-			$cpts = array( Sprout_Client::POST_TYPE, Sprout_Engagement::POST_TYPE, SC_Message::POST_TYPE, SC_Record::POST_TYPE );
+			$cpts = array( Sprout_Client::POST_TYPE, 'sa_engagement', 'sc_message', SC_Record::POST_TYPE );
 			foreach ( $cpts as $cpt ) {
 				remove_meta_box( 'wpseo_meta', $cpt, 'normal' );
 			}
@@ -106,7 +106,7 @@ class SC_Compatibility extends SC_Controller {
 	public static function prevent_slider_pro_adding_metaboxes() {
 		if ( self::is_sc_admin() ) {
 			// Disable Yoast metabox
-			$cpts = array( Sprout_Client::POST_TYPE, Sprout_Engagement::POST_TYPE, SC_Message::POST_TYPE, SC_Record::POST_TYPE );
+			$cpts = array( Sprout_Client::POST_TYPE, 'sa_engagement', 'sc_message', SC_Record::POST_TYPE );
 			foreach ( $cpts as $cpt ) {
 				remove_meta_box( 'layout_sectionid', $cpt, 'normal' );
 				remove_meta_box( 'slider_sectionid', $cpt, 'normal' );
@@ -132,7 +132,7 @@ class SC_Compatibility extends SC_Controller {
 	}
 
 	public static function remove_um_metabox() {
-		$cpts = array( Sprout_Client::POST_TYPE, Sprout_Engagement::POST_TYPE, SC_Message::POST_TYPE, SC_Record::POST_TYPE );
+		$cpts = array( Sprout_Client::POST_TYPE, 'sa_engagement', 'sc_message', SC_Record::POST_TYPE );
 		foreach ( $cpts as $cpt ) {
 			remove_meta_box( 'um-admin-access-settings', $cpt, 'scde' );
 		}
