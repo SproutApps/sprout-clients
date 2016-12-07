@@ -3,7 +3,7 @@ Contributors: dancameron, sproutapps, freemius
 Donate link: https://sproutapps.co/
 Tags: crm, leads, client management, invoicing, emailing, messaging
 Requires at least: 4.4
-Tested up to: 4.5
+Tested up to: 4.7
 Stable tag: 2.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html

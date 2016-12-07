@@ -133,10 +133,10 @@ abstract class SC_Controller extends Sprout_Clients {
 		wp_enqueue_script( 'sa_dropdown' );
 		wp_enqueue_style( 'sa_dropdown_css' );
 
+		wp_enqueue_script( 'sprout_clients' );
 		wp_enqueue_style( 'sprout_clients' );
 
 		if ( Sprout_Client::POST_TYPE === $screen_post_type ) {
-			wp_enqueue_script( 'sprout_clients' );
 			wp_enqueue_script( 'sprout_messages' );
 
 			wp_enqueue_script( 'redactor' );
@@ -505,8 +505,8 @@ abstract class SC_Controller extends Sprout_Clients {
 	 * @param string $mode       normal or all
 	 * @return string
 	 */
-	public static function linkify( $value, $protocols = array( 'http', 'mail' ), array $attributes = array() )
-	{
+	public static function linkify( $value, $protocols = array('http', 'mail'), array $attributes = array() ) {
+
 		// Link attributes
 		$attr = '';
 		foreach ( $attributes as $key => $val ) {
@@ -516,16 +516,22 @@ abstract class SC_Controller extends Sprout_Clients {
 		$links = array();
 
 		// Extract existing links and tags
-		$value = preg_replace_callback( '~(<a .*?>.*?</a>|<.*?>)~i', function ($match) use (&$links) { return '<' . array_push( $links, $match[1] ) . '>'; }, $value );
+		$value = preg_replace_callback( 
+				'~(<a .*?>.*?</a>|<.*?>)~i', 
+				function ( $match ) use ( &$links ) { 
+					return '<' . array_push( $links, $match[1] ) . '>'; 
+				}, 
+				$value
+			);
 
 		// Extract text links for each protocol
-		foreach ( (array) $protocols as $protocol ) {
+		foreach ( (array)$protocols as $protocol ) {
 			switch ( $protocol ) {
 				case 'http':
 				case 'https':   $value = preg_replace_callback( '~(?:(https?)://([^\s<]+)|(www\.[^\s<]+?\.[^\s<]+))(?<![\.,:])~i', function ($match) use ($protocol, &$links, $attr) { if ( $match[1] ) { $protocol = $match[1]; } $link = $match[2] ?: $match[3]; return '<' . array_push( $links, "<a $attr href=\"$protocol://$link\">$link</a>" ) . '>'; }, $value ); break;
 				case 'mail':    $value = preg_replace_callback( '~([^\s<]+?@[^\s<]+?\.[^\s<]+)(?<![\.,:])~', function ($match) use (&$links, $attr) { return '<' . array_push( $links, "<a $attr href=\"mailto:{$match[1]}\">{$match[1]}</a>" ) . '>'; }, $value ); break;
 				case 'twitter': $value = preg_replace_callback( '~(?<!\w)[@#](\w++)~', function ($match) use (&$links, $attr) { return '<' . array_push( $links, "<a $attr href=\"https://twitter.com/" . ($match[0][0] == '@' ? '' : 'search/%23') . $match[1]  . "\">{$match[0]}</a>" ) . '>'; }, $value ); break;
-				default: $value = preg_replace_callback( '~' . preg_quote( $protocol, '~' ) . '://([^\s<]+?)(?<![\.,:])~i', function ($match) use ($protocol, &$links, $attr) { return '<' . array_push( $links, "<a $attr href=\"$protocol://{$match[1]}\">{$match[1]}</a>" ) . '>'; }, $value ); break;
+				default:        $value = preg_replace_callback( '~' . preg_quote( $protocol, '~' ) . '://([^\s<]+?)(?<![\.,:])~i', function ($match) use ($protocol, &$links, $attr) { return '<' . array_push( $links, "<a $attr href=\"$protocol://{$match[1]}\">{$match[1]}</a>" ) . '>'; }, $value ); break;
 			}
 		}
 

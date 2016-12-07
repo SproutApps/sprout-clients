@@ -63,7 +63,6 @@ class SC_Admin_Capabilities extends SC_Controller {
 				}
 			}
 		}
-		error_log( 'add caps: ' . print_r( $wp_roles, true ) );
 	}
 
 
