@@ -9,11 +9,6 @@
 class SC_Compatibility extends SC_Controller {
 
 	public static function init() {
-		// attempt to kill all select2 registrations on si_admin pages
-		add_action( 'init', array( __CLASS__, 'deregister_select2' ), PHP_INT_MAX );
-		// atttempt to kill all select2 registrations on si_admin pages REALLY LATE
-		add_action( 'wp_print_scripts', array( __CLASS__, 'deenqueue_select2' ), PHP_INT_MAX );
-
 		// WP SEO
 		add_filter( 'init', array( __CLASS__, 'prevent_wpseo_from_being_assholes_about_admin_columns' ), 10 );
 		add_filter( 'add_meta_boxes', array( __CLASS__, 'prevent_wpseo_from_being_assholes_about_private_cpts_metaboxes' ), 10 );
@@ -41,39 +36,6 @@ class SC_Compatibility extends SC_Controller {
 		add_filter( 'add_meta_boxes', array( __CLASS__, 'prevent_slider_pro_adding_metaboxes' ), 100 );
 
 		add_action( 'parse_query', array( __CLASS__, 'remove_seo_header_stuff' ) );
-	}
-
-	public static function deregister_select2() {
-		if ( self::is_sc_admin() ) {
-			wp_deregister_script( 'select2' );
-			wp_deregister_style( 'select2' );
-			// Register the SI version with the old handle
-			wp_register_style( 'select2', SC_URL . '/resources/admin/plugins/select2/css/select2.min.css', null, self::SC_VERSION, false );
-			wp_register_script( 'select2', SC_URL . '/resources/admin/plugins/select2/js/select2.min.js', array( 'jquery' ), self::SC_VERSION, false );
-
-			wp_deregister_script( 'select2_4.0' );
-			wp_deregister_style( 'select2_4.0_css' );
-		}
-	}
-
-	public static function deenqueue_select2() {
-		if ( self::is_sc_admin() ) {
-			foreach ( wp_scripts()->queue as $handle ) {
-				if ( strpos( $handle, 'select2' ) !== false && 'select2_4.0' !== $handle ) {
-					wp_dequeue_script( $handle );
-					// Register the SI version with the old handle
-					wp_register_script( 'select2', SC_URL . '/resources/admin/plugins/select2/js/select2.min.js', array( 'jquery' ), self::SC_VERSION, false );
-
-				}
-			}
-
-			foreach ( wp_styles()->queue as $handle ) {
-				if ( strpos( $handle, 'select2' ) !== false && 'select2_4.0_css' !== $handle ) {
-					wp_dequeue_style( $handle );
-					wp_register_style( 'select2', SC_URL . '/resources/admin/plugins/select2/css/select2.min.css', null, self::SC_VERSION, false );
-				}
-			}
-		}
 	}
 
 	public static function remove_seo_header_stuff() {
