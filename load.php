@@ -75,10 +75,16 @@ function sprout_clients_load() {
 	require_once SC_PATH.'/controllers/records/Internal_Records.php';
 	require_once SC_PATH.'/controllers/records/Records_Admin_Table.php';
 
+	// updater if SI isn't loaded
+	if ( ! class_exists( 'EDD_SL_Plugin_Updater_SA_Mod' ) && file_exists( SC_PATH.'/controllers/updates/Updater.php' ) ) {
+		require_once SC_PATH.'/controllers/updates/Updater.php';
+	}
+
 	// updates
-	if ( SC_PATH.'/controllers/updates/Updates.php' ) {
+	if ( file_exists( SC_PATH.'/controllers/updates/Updates.php' ) ) {
 		require_once SC_PATH.'/controllers/updates/Updates.php';
 	}
+
 	if ( file_exists( SC_PATH.'/controllers/updates/Free_License.php' ) ) {
 		require_once SC_PATH.'/controllers/updates/Free_License.php';
 	}

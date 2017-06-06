@@ -1,3 +1,7 @@
+= 2.1.4 =
+
+* FIX: Select2 Compat issues with themes and other plugins
+
 = 2.1.3 =
 
 * FIX: ACF Compat issues
