@@ -31,11 +31,11 @@ define( 'SC_RESOURCES', plugins_url( 'resources/', __FILE__ ) );
 /**
  * Minimum supported verscon of WordPress
  */
-define( 'SC_SUPPORTED_WP_VERSCON', version_compare( get_bloginfo( 'version' ), '4.4', '>=' ) );
+define( 'SC_SUPPORTED_WP_VERSION', version_compare( get_bloginfo( 'version' ), '4.4', '>=' ) );
 /**
  * Minimum supported verscon of PHP
  */
-define( 'SC_SUPPORTED_PHP_VERSCON', version_compare( phpversion(), '5.2.4', '>=' ) );
+define( 'SC_SUPPORTED_PHP_VERSION', version_compare( phpversion(), '5.2.4', '>=' ) );
 
 function sc_fs() {
 
@@ -76,7 +76,7 @@ require_once SC_PATH . '/load.php';
 /**
  * Compatibility check
  */
-if ( ! SC_SUPPORTED_WP_VERSCON || ! SC_SUPPORTED_PHP_VERSCON ) {
+if ( ! SC_SUPPORTED_WP_VERSION || ! SC_SUPPORTED_PHP_VERSION ) {
 	/**
 	 * Disable SC and add fail notices if compatibility check fails
 	 * @return string inserted within the WP dashboard
@@ -138,11 +138,11 @@ if ( ! function_exists( 'sc_deactivate_plugin' ) ) {
  */
 if ( ! function_exists( 'sc_compatibility_check_fail_notices' ) ) {
 	function sc_compatibility_check_fail_notices() {
-		if ( ! SC_SUPPORTED_WP_VERSCON ) {
-			printf( '<div class="error"><p><strong>Sprout Clients</strong> requires WordPress %s or higher. Please upgrade WordPress and activate the Sprout Clients Plugin again.</p></div>', SC_SUPPORTED_WP_VERSCON );
+		if ( ! SC_SUPPORTED_WP_VERSION ) {
+			printf( '<div class="error"><p><strong>Sprout Clients</strong> requires WordPress %s or higher. Please upgrade WordPress and activate the Sprout Clients Plugin again.</p></div>', SC_SUPPORTED_WP_VERSION );
 		}
-		if ( ! SC_SUPPORTED_PHP_VERSCON ) {
-			printf( '<div class="error"><p><strong>Sprout Clients</strong> requires PHP verscon %s or higher to be installed on your server. Talk to your web host about uscng a secure verscon of PHP.</p></div>', SC_SUPPORTED_PHP_VERSCON );
+		if ( ! SC_SUPPORTED_PHP_VERSION ) {
+			printf( '<div class="error"><p><strong>Sprout Clients</strong> requires PHP verscon %s or higher to be installed on your server. Talk to your web host about uscng a secure verscon of PHP.</p></div>', SC_SUPPORTED_PHP_VERSION );
 		}
 	}
 }
