@@ -1,3 +1,7 @@
+= 2.1.5 =
+
+* FIX: Jetpack compat issue.
+
 = 2.1.4 =
 
 * FIX: Select2 Compat issues with themes and other plugins

@@ -14,7 +14,7 @@ if ( class_exists( 'SA_Settings_API' ) ) {
  * @package Sprout_Invoice
  * @subpackage Settings
  */
-class SA_Settings_API extends SC_Controller {
+class SA_Settings_API extends SI_Controller {
 
 	private static $admin_pages = array();
 	private static $options = array();
@@ -105,7 +105,7 @@ class SA_Settings_API extends SC_Controller {
 			'ajax_full_page' => false,
 			'add_new' => '',
 			'add_new_post_type' => '',
-			'capability' => 'manage_sprout_clients_options',
+			'capability' => 'manage_sprout_invoices_options',
 		);
 		$parsed_args = wp_parse_args( $args, $defaults );
 		extract( $parsed_args );
@@ -167,8 +167,8 @@ class SA_Settings_API extends SC_Controller {
 	public static function add_admin_page() {
 
 		// Add parent menu for SI
-		self::$settings_page = add_menu_page( __( 'Sprout Apps', 'sprout-invoices' ), __( 'Sprout Apps', 'sprout-invoices' ), 'manage_sprout_clients_options', self::APP_DOMAIN );
-		add_submenu_page( self::APP_DOMAIN, __( 'Sprout Apps', 'sprout-invoices' ), __( 'Updates', 'sprout-invoices' ), 'manage_sprout_clients_options', self::APP_DOMAIN, array( __CLASS__, 'dashboard_page' ) );
+		self::$settings_page = add_menu_page( __( 'Sprout Apps', 'sprout-invoices' ), __( 'Sprout Apps', 'sprout-invoices' ), 'manage_sprout_invoices_options', self::APP_DOMAIN );
+		add_submenu_page( self::APP_DOMAIN, __( 'Sprout Apps', 'sprout-invoices' ), __( 'Updates', 'sprout-invoices' ), 'manage_sprout_invoices_options', self::APP_DOMAIN, array( __CLASS__, 'dashboard_page' ) );
 
 		// Sort submenus
 		uasort( self::$admin_pages, array( __CLASS__, 'sort_by_weight' ) );
@@ -192,7 +192,7 @@ class SA_Settings_API extends SC_Controller {
 	 * @return void
 	 */
 	public static function default_admin_page() {
-		if ( ! current_user_can( 'manage_sprout_clients_options' ) ) {
+		if ( ! current_user_can( 'manage_sprout_invoices_options' ) ) {
 			return; // not allowed to view this page
 		}
 		if ( isset( $_GET['settings-updated'] ) && isset( $_GET['settings-updated'] ) ) {
@@ -372,7 +372,7 @@ class SA_Settings_API extends SC_Controller {
 		ob_start(); ?>
 
 		<?php if ( $data['type'] == 'textarea' ) : ?>
-			<textarea type="textarea" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $name ); ?>" rows="<?php echo isset( $data['rows'] )?$data['rows']:4; ?>" cols="<?php echo isset( $data['cols'] )?$data['cols']:40; ?>" <?php foreach ( $data['attributes'] as $attr => $attr_value ) { echo esc_attr( $attr ).'="'.esc_attr( $attr_value ).'" '; } ?> <?php if ( isset( $data['required'] ) && $data['required'] ) { echo 'required'; } ?>><?php echo esc_textarea( $data['default'] ); ?></textarea>
+			<textarea type="textarea" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $name ); ?>" rows="<?php echo isset( $data['rows'] )?$data['rows']:4; ?>" cols="<?php echo isset( $data['cols'] )?$data['cols']:40; ?>" class="small-text code" <?php foreach ( $data['attributes'] as $attr => $attr_value ) { echo esc_attr( $attr ).'="'.esc_attr( $attr_value ).'" '; } ?> <?php if ( isset( $data['required'] ) && $data['required'] ) { echo 'required'; } ?>><?php echo esc_textarea( $data['default'] ); ?></textarea>
 		<?php elseif ( $data['type'] == 'wysiwyg' ) : ?>
 			<?php
 				wp_editor_styleless( $data['default'], $name, array( 'textarea_rows' => 10 ) ); ?>
@@ -455,7 +455,7 @@ class SA_Settings_API extends SC_Controller {
 				$option_page = ( isset( $options['option_page'] ) ) ? $options['option_page'] : 'general';
 
 				// capability check
-				$capability = apply_filters( "option_page_capability_{$option_page}", 'manage_sprout_clients_options' );
+				$capability = apply_filters( "option_page_capability_{$option_page}", 'manage_sprout_invoices_options' );
 				if ( ! current_user_can( $capability ) ) {
 					wp_die( __( 'Cheatin&#8217; uh?' ) );
 				}
@@ -590,11 +590,6 @@ class SA_Settings_API extends SC_Controller {
 			return;
 		}
 
-		// don't re-run and prevent looping
-		if ( did_action( 'save_post' ) > 1 ) {
-			return;
-		}
-
 		foreach ( self::$meta_boxes as $post_type => $post_meta_boxes ) {
 			// Only save the meta boxes that count
 			if ( $post->post_type == $post_type ) {
@@ -602,11 +597,18 @@ class SA_Settings_API extends SC_Controller {
 				uasort( $post_meta_boxes, array( __CLASS__, 'sort_by_save_weight' ) );
 				// Loop through each meta box registered under this type.
 				foreach ( $post_meta_boxes as $box_name => $args ) {
-					if ( isset( $args['save_callback'] ) ) {
+					if ( isset( $args['save_callback'] ) && is_array( $args['save_callback'] ) ) {
 						if ( is_callable( $args['save_callback'] ) ) {
 							$callback_args = ( ! isset( $args['save_callback_args'] ) ) ? array() : $args['save_callback_args'] ;
+
+							$action_name = implode( '::', $args['save_callback'] );
+							if ( did_action( $action_name ) > 1 ) {
+								return;
+							}
+							// execute
 							call_user_func_array( $args['save_callback'], array( $post_id, $post, $callback_args ) );
-							do_action( implode( '::', $args['save_callback'] ), $post_id, $post, $callback_args );
+							// action
+							do_action( $action_name, $post_id, $post, $callback_args );
 						} elseif ( method_exists( $args['save_callback'][0], $args['save_callback'][1] ) ) {
 							do_action( 'si_error', __CLASS__ . '::' . __FUNCTION__ . ' - callback may be private.', $args );
 						}
