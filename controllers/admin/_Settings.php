@@ -14,7 +14,7 @@ if ( class_exists( 'SA_Settings_API' ) ) {
  * @package Sprout_Invoice
  * @subpackage Settings
  */
-class SA_Settings_API extends SI_Controller {
+class SA_Settings_API extends SC_Controller {
 
 	private static $admin_pages = array();
 	private static $options = array();
@@ -105,7 +105,7 @@ class SA_Settings_API extends SI_Controller {
 			'ajax_full_page' => false,
 			'add_new' => '',
 			'add_new_post_type' => '',
-			'capability' => 'manage_sprout_invoices_options',
+			'capability' => 'manage_sprout_clients_options',
 		);
 		$parsed_args = wp_parse_args( $args, $defaults );
 		extract( $parsed_args );
@@ -167,8 +167,8 @@ class SA_Settings_API extends SI_Controller {
 	public static function add_admin_page() {
 
 		// Add parent menu for SI
-		self::$settings_page = add_menu_page( __( 'Sprout Apps', 'sprout-invoices' ), __( 'Sprout Apps', 'sprout-invoices' ), 'manage_sprout_invoices_options', self::APP_DOMAIN );
-		add_submenu_page( self::APP_DOMAIN, __( 'Sprout Apps', 'sprout-invoices' ), __( 'Updates', 'sprout-invoices' ), 'manage_sprout_invoices_options', self::APP_DOMAIN, array( __CLASS__, 'dashboard_page' ) );
+		self::$settings_page = add_menu_page( __( 'Sprout Apps', 'sprout-invoices' ), __( 'Sprout Apps', 'sprout-invoices' ), 'manage_sprout_clients_options', self::APP_DOMAIN );
+		add_submenu_page( self::APP_DOMAIN, __( 'Sprout Apps', 'sprout-invoices' ), __( 'Updates', 'sprout-invoices' ), 'manage_sprout_clients_options', self::APP_DOMAIN, array( __CLASS__, 'dashboard_page' ) );
 
 		// Sort submenus
 		uasort( self::$admin_pages, array( __CLASS__, 'sort_by_weight' ) );
@@ -192,7 +192,7 @@ class SA_Settings_API extends SI_Controller {
 	 * @return void
 	 */
 	public static function default_admin_page() {
-		if ( ! current_user_can( 'manage_sprout_invoices_options' ) ) {
+		if ( ! current_user_can( 'manage_sprout_clients_options' ) ) {
 			return; // not allowed to view this page
 		}
 		if ( isset( $_GET['settings-updated'] ) && isset( $_GET['settings-updated'] ) ) {
@@ -455,7 +455,7 @@ class SA_Settings_API extends SI_Controller {
 				$option_page = ( isset( $options['option_page'] ) ) ? $options['option_page'] : 'general';
 
 				// capability check
-				$capability = apply_filters( "option_page_capability_{$option_page}", 'manage_sprout_invoices_options' );
+				$capability = apply_filters( "option_page_capability_{$option_page}", 'manage_sprout_clients_options' );
 				if ( ! current_user_can( $capability ) ) {
 					wp_die( __( 'Cheatin&#8217; uh?' ) );
 				}

@@ -4,7 +4,7 @@
  * Plugin URI: https://sproutapps.co/sprout-clients/
  * Description: Contact relationship management to increase productivity in gaining clients and business relationships.
  * Author: Sprout Apps
- * Version: 2.1.5
+ * Version: 2.1.6
  * Author URI: https://sproutapps.co
  * Text Domain: sprout-invoices
  * Domain Path: languages
