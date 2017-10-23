@@ -1,3 +1,7 @@
+= 2.1.7 =
+
+* Update: Collision prevention
+
 = 2.1.6 =
 
 * FIX: Jetpack compat issue.
