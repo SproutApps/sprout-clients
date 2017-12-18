@@ -53,11 +53,11 @@ class SC_Dev_Logs extends SC_Controller {
 							'type' => 'checkbox',
 							'default' => self::$record_logs,
 							'value' => '1',
-							'description' => __( 'Note: This should only be used for testing and troubleshooting. Records are found under Tools.' , 'sprout-invoices' )
-							)
-						)
-					)
-				)
+							'description' => __( 'Note: This should only be used for testing and troubleshooting. Records are found under Tools.' , 'sprout-invoices' ),
+							),
+						),
+					),
+				),
 			);
 		do_action( 'sprout_settings', $settings, self::SETTINGS_PAGE );
 	}
@@ -84,8 +84,7 @@ class SC_Dev_Logs extends SC_Controller {
 		if ( self::$record_logs ) {
 			if ( function_exists( 'wp_get_current_user' ) ) {
 				self::record_log( $subject, $data );
-			}
-			else {
+			} else {
 				self::$recorded_logs[ $subject ] = $data;
 			}
 		}
@@ -112,8 +111,7 @@ class SC_Dev_Logs extends SC_Controller {
 		if ( $record_error ) {
 			if ( function_exists( 'wp_get_current_user' ) ) {
 				self::record_log( $subject, $data, true );
-			}
-			else {
+			} else {
 				self::$recorded_errors[ $subject ] = $data;
 			}
 		}
@@ -172,20 +170,22 @@ class SC_Dev_Logs extends SC_Controller {
 			'post_status' => 'any',
 			'posts_per_page' => -1,
 			'fields' => 'ids',
-			'tax_query' => array(
-							array(
-								'taxonomy' => SC_Record::TAXONOMY,
-								'field' => 'id',
-								'terms' => self::LOG_TYPE,
-							),
-						)
+				'tax_query' => array(
+					array(
+						'taxonomy' => SC_Record::TAXONOMY,
+						'field'    => 'slug',
+						'terms'    => self::LOG_TYPE,
+					),
+				),
 		);
 
 		add_filter( 'posts_where', array( __CLASS__, 'filter_where_with_when' ) ); // add filter to base return on dates
 		$records = new WP_Query( $args );
 		remove_filter( 'posts_where', array( __CLASS__, 'filter_where_with_when' ) ); // Remove filter
 		foreach ( $records->posts as $record_id ) {
-			wp_delete_post( $record_id, true );
+			if ( has_term( self::LOG_TYPE, SC_Record::TAXONOMY, $record_id ) ) { // confirm
+				wp_delete_post( $record_id, true );
+			}
 		}
 	}
 
@@ -200,5 +200,4 @@ class SC_Dev_Logs extends SC_Controller {
 		$where .= " AND post_date <= '" . $offset . "'";
 		return $where;
 	}
-
 }
