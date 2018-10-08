@@ -18,7 +18,7 @@ abstract class Sprout_Clients {
 	/**
 	 * Application app-domain
 	 */
-	const APP_DOMAIN = 'sprout-apps';
+	const APP_DOMAIN = 'sprout-clients';
 
 	/**
 	 * Application text-domain
@@ -31,7 +31,7 @@ abstract class Sprout_Clients {
 	/**
 	 * Current version. Should match sprout-invoices.php plugin version.
 	 */
-	const SC_VERSION = '2.1.8';
+	const SC_VERSION = '2.2';
 	/**
 	 * DB Version
 	 */

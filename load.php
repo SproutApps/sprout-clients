@@ -36,9 +36,7 @@ function sprout_clients_load() {
 	// controllers
 	require_once SC_PATH.'/controllers/_Controller.php';
 	require_once SC_PATH.'/languages/Sprout_Clients_l10n.php';
-	if ( ! class_exists( 'Sprout_Invoices' ) ) {
-		require_once SC_PATH.'/controllers/admin/_Settings.php';
-	}
+	require_once SC_PATH.'/controllers/admin/_Settings.php';
 	require_once SC_PATH.'/controllers/admin/Settings.php';
 	require_once SC_PATH.'/controllers/admin/Capabilities.php';
 	// controllers -- clients
@@ -146,9 +144,7 @@ function sprout_clients_load() {
 	/**
 	 * Settings
 	 */
-	if ( ! class_exists( 'Sprout_Invoices' ) ) {
-		SA_Settings_API::init();
-	}
+	SC_Settings_API::init();
 
 	SC_Settings::init();
 

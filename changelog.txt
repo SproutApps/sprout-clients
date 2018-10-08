@@ -1,4 +1,8 @@
-= 2.1.8 =
+= 2.2 =
+
+* Compat update
+
+= 2.1.9 =
 
 * Update: Resolve an issue with the latest version of WordPress tax queries.
 

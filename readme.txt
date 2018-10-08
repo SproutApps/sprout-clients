@@ -4,7 +4,7 @@ Donate link: https://sproutapps.co/
 Tags: crm, leads, client management, invoicing, emailing, messaging
 Requires at least: 4.4
 Tested up to: 4.9
-Stable tag: 2.1.8
+Stable tag: 2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -72,7 +72,11 @@ Woocommerce, Stats dashboard, time tracking updates and more.
 
 == Changelog ==
 
-= 2.1.8 =
+= 2.2 =
+
+* Compat update
+
+= 2.1.9 =
 
 * Update: Resolve an issue with the latest version of WordPress tax queries.
 
