@@ -1,10 +1,10 @@
 === Sprout Clients - CRM and Lead Management ===
 Contributors: dancameron, sproutapps, freemius
-Donate link: https://sproutapps.co/
+Donate link: https://sproutinvoices.com/sprout-clients/
 Tags: crm, leads, client management, invoicing, emailing, messaging
 Requires at least: 4.4
-Tested up to: 4.9
-Stable tag: 2.2
+Tested up to: 5.2.2
+Stable tag: 2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,13 +13,12 @@ Properly leveraging your contact lists isn’t sending out a single email to the
 == Description ==
 
 > <strong>Sprout Apps Family</strong><br>
-> Sprout Clients is a standalone Lead Management plugin and is complimentary to [Sprout Invoices](https://wordpress.org/plugins/sprout-invoices/), another free business centric plugin from [Sprout Apps](https://sproutapps.co/?utm_medium=link&utm_campaign=free&utm_source=wordpress.org).
+> Sprout Clients is a standalone Lead Management plugin and is complimentary to [Sprout Invoices](https://wordpress.org/plugins/sprout-invoices/), another free business centric plugin from [Sprout Apps](https://sproutinvoices.com/?utm_medium=link&utm_campaign=free&utm_source=wordpress.org).
 
 = Sprout Clients – Premium WordPress CRM & Lead Management Plugin =
 
-Our mission at [Sprout Apps](https://sproutapps.co/?utm_medium=link&utm_campaign=free&utm_source=wordpress.org) is to build a suite of apps (aka plugins) to help us all work more efficiently & provide complete control the WordPress way. Our latest Sprout Apps are Sprout Invoices and Help Scout Desk, with many more to come.
 
-> The future of [Sprout Clients](https://sproutapps.co/sprout-clients/?utm_medium=link&utm_campaign=free&utm_source=wordpress.org) relies on happy customers supporting Sprout Apps by purchasing upgraded versions. If you like this free version of Sprout Clients please consider [purchasing an upgrade](https://sproutapps.co/sprout-clients/?utm_medium=link&utm_campaign=free&utm_source=wordpress.org).
+> The future of [Sprout Clients](https://sproutinvoices.com/sprout-clients/?utm_medium=link&utm_campaign=free&utm_source=wordpress.org) relies on happy customers supporting Sprout Invoices by purchasing upgraded versions. If you like this free version of Sprout Clients please consider [purchasing an upgrade](https://sproutinvoices.com/sprout-clients/?utm_medium=link&utm_campaign=free&utm_source=wordpress.org).
 
 = Create Leads, Sprout Clients =
 
@@ -47,7 +46,7 @@ Plenty of filters and actions allow you to hook into Sprout Clients and alter wh
 = Awesome Support =
 The results of our happiness report show people love our support, check it out on the Sprout Invoices page — we strive for happy!
 
-Make sure to review the [Sprout Clients](https://sproutapps.co/sprout-clients/?utm_medium=link&utm_campaign=free&utm_source=wordpress.org) features page for more detailed information. As well as the full featured [demo](https://sproutapps.co/demo/playground).
+Make sure to review the [Sprout Clients](https://sproutinvoices.com/sprout-clients/?utm_medium=link&utm_campaign=free&utm_source=wordpress.org) features page for more detailed information. As well as the full featured [demo](https://sproutinvoices.com/demo/playground).
 
 == Installation ==
 
@@ -56,7 +55,7 @@ Make sure to review the [Sprout Clients](https://sproutapps.co/sprout-clients/?u
 
 == Frequently Asked Questions ==
 
-**Please visit [Sprout Apps](https://sproutapps.co/sprout-clients/?utm_medium=link&utm_campaign=free&utm_source=wordpress.org).**
+**Please visit [Sprout Apps](https://sproutinvoices.com/sprout-clients/?utm_medium=link&utm_campaign=free&utm_source=wordpress.org).**
 
 
 == Screenshots ==
@@ -110,4 +109,4 @@ Woocommerce, Stats dashboard, time tracking updates and more.
 
 == Support ==
 
-Priority support is provided with an [upgraded version](https://sproutapps.co/sprout-clients/?utm_medium=link&utm_campaign=free&utm_source=wordpress.org). All free support will provided in the [forums](https://wordpress.org/support/plugin/sprout-clients).
+Priority support is provided with an [upgraded version](https://sproutinvoices.com/sprout-clients/?utm_medium=link&utm_campaign=free&utm_source=wordpress.org). All free support will provided in the [forums](https://wordpress.org/support/plugin/sprout-clients).
