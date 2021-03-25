@@ -54,7 +54,7 @@ function sc_fs() {
 			'has_paid_plans'    => false,
 			'menu'              => array(
 			'slug'       => 'sprout-apps/settings',
-			'first-path' => 'admin.php?page=sprout-apps/sprout_client_settings&tab=sc_getting_started',
+			'first-path' => 'admin.php?page=sprout-clients&tab=sc_getting_started',
 			'account'    => false,
 			'contact'    => false,
 			'support'    => false,
