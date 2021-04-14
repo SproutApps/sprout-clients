@@ -290,7 +290,7 @@
 		/**
 		 * Remove user and hidden option associated list
 		 */
-		$('.item_add_type').live('click', function(e) {
+		$('.item_add_type').on('click', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
 			sc.clientEdit.changeType( $( this ) );
@@ -299,7 +299,7 @@
 		/**
 		 * Remove user and hidden option associated list
 		 */
-		$('.sc_statuses_update input').live('change', function(e) {
+		$('.sc_statuses_update input').on('change', function(e) {
 			var $selection = $( this );
 			if ( $selection.is(':checked') ) {
 				sc.clientEdit.updateStatusOption( $selection, 'add' );
@@ -310,7 +310,7 @@
 		});
 
 		// Associate Users
-		$('#associated_users').live('change', function(e) {
+		$('#associated_users').on('change', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
 			$( this ).after(_sprout_clients.spinner);
@@ -320,7 +320,7 @@
 		/**
 		 * Remove user and hidden option associated list
 		 */
-		$('.unassociate_user').live('click', function(e) {
+		$('.unassociate_user').on('click', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
 			sc.clientEdit.unassociateUser( $( this ) );
@@ -329,21 +329,21 @@
 		/**
 		 * Create user via ajax
 		 */
-		$('#sc_create_user').live('click', function(e) {
+		$('#sc_create_user').on('click', function(e) {
 			sc.clientEdit.createUser( $(this) );
 		});
 
 		/**
 		 * Create enagement via ajax
 		 */
-		$('#create_engagement').live('click', function(e) {
+		$('#create_engagement').on('click', function(e) {
 			sc.clientEdit.createEngagement( $(this) );
 		});
 
 		/**
 		 * Submit user note
 		 */
-		$('.submit_user_note').live('click', function(e) {
+		$('.submit_user_note').on('click', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
 			sc.clientEdit.saveUserNote( $( this ) );
@@ -359,7 +359,7 @@
 		/**
 		 * Show save option
 		 */
-		$('.sc_user_note').live('focus', function(e) {
+		$('.sc_user_note').on('focus', function(e) {
 			var user_id = $(this).data('user-id'),
 				$button = $('#submit_user_note_'+user_id);
 			$button.fadeIn();
@@ -369,7 +369,7 @@
 		/**
 		 * delete client history record
 		 */
-		$('.delete_client_record').live( 'click', function(e) {
+		$('.delete_client_record').on( 'click', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
 			sc.clientEdit.deleteRecord( this );
@@ -378,7 +378,7 @@
 		/**
 		 * edit private note
 		 */
-		$('#save_edit_private_note').live( 'click', function(e) {
+		$('#save_edit_private_note').on( 'click', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
 			sc.clientEdit.editPrivateNote( this );

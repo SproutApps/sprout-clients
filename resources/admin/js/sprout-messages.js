@@ -121,7 +121,7 @@
 	 */
 	sc.messageEdit.init = function() {
 
-		$('#show_create_message_form').live('click', function(e) {
+		$('#show_create_message_form').on('click', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
 			var $client_id = $( this ).data('client-id');
@@ -130,19 +130,19 @@
 			sc.messageEdit.showMessagesFormMetaBox( $client_id );
 		});
 
-		$('#create_message').live('click', function(e) {
+		$('#create_message').on('click', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
 			sc.messageEdit.createMessage( $( this ) );
 		});
 
-		$('#edit_message').live('click', function(e) {
+		$('#edit_message').on('click', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
 			sc.messageEdit.editMessage( $( this ) );
 		});
 
-		$('.sc_delete_message').live('click', function(e) {
+		$('.sc_delete_message').on('click', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
 			var $message_id = $( this ).data('message-id');
@@ -151,7 +151,7 @@
 			sc.messageEdit.deleteMessage( $message_id );
 		});
 
-		$('.sc_edit_message').live('click', function(e) {
+		$('.sc_edit_message').on('click', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
 			var $message_id = $( this ).data('message-id');
@@ -162,7 +162,7 @@
 			sc.messageEdit.editMessagesFormMetaBox( $message_id );
 		});
 
-		$('#sa_message_format').live('click', function(e) {
+		$('#sa_message_format').on('click', function(e) {
 			if ( $(this).is(':checked') ) {
 				sc.messageEdit.redactor_init();
 			}

@@ -233,7 +233,7 @@
 		/**
 		 * Remove user and hidden option associated list
 		 */
-		$('.item_add_type').live('click', function(e) {
+		$('.item_add_type').on('click', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
 			sc.engagementEdit.changeType( $( this ) );
@@ -242,7 +242,7 @@
 		/**
 		 * Remove user and hidden option associated list
 		 */
-		$('.sc_statuses_update input').live('change', function(e) {
+		$('.sc_statuses_update input').on('change', function(e) {
 			var $selection = $( this );
 			if ( $selection.is(':checked') ) {
 				sc.engagementEdit.updateStatusOption( $selection, 'add' );
@@ -253,7 +253,7 @@
 		});
 
 		// Associate Users
-		$('#assigned_users').live('change', function(e) {
+		$('#assigned_users').on('change', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
 
@@ -269,7 +269,7 @@
 		/**
 		 * Remove user and hidden option associated list
 		 */
-		$('.remove_user').live('click', function(e) {
+		$('.remove_user').on('click', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
 
@@ -281,7 +281,7 @@
 		/**
 		 * Create user via ajax
 		 */
-		$('#sc_create_user').live('click', function(e) {
+		$('#sc_create_user').on('click', function(e) {
 			sc.engagementEdit.createUser( $(this) );
 		});
 
@@ -295,7 +295,7 @@
 		/**
 		 * delete engagement history record
 		 */
-		$('.delete_engagement_record').live( 'click', function(e) {
+		$('.delete_engagement_record').on( 'click', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
 			sc.engagementEdit.deleteRecord( this );
@@ -304,7 +304,7 @@
 		/**
 		 * edit private note
 		 */
-		$('#save_edit_private_note').live( 'click', function(e) {
+		$('#save_edit_private_note').on( 'click', function(e) {
 			e.stopPropagation();
 			e.preventDefault();
 			sc.engagementEdit.editPrivateNote( this );

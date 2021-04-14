@@ -260,7 +260,7 @@ class SC_Internal_Records extends SC_Controller {
 	?>
 	<script type="text/javascript">
 		jQuery(document).ready(function($){
-			jQuery(".show_record_detail").live('click', function(e) {
+			jQuery(".show_record_detail").on('click', function(e) {
 				e.preventDefault();
 				var record_id = $(this).parent().attr("id");
 				$('#'+record_id).remove();

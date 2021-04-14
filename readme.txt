@@ -1,5 +1,5 @@
 === Sprout Clients - CRM and Lead Management ===
-Contributors: dancameron, sproutapps, freemius
+Contributors: dancameron, sproutapps, freemius, elanasparkle
 Donate link: https://sproutinvoices.com/sprout-clients/
 Tags: crm, leads, client management, invoicing, emailing, messaging
 Requires at least: 4.4
