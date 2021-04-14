@@ -4,7 +4,7 @@ Donate link: https://sproutinvoices.com/sprout-clients/
 Tags: crm, leads, client management, invoicing, emailing, messaging
 Requires at least: 5.5
 Tested up to: 5.7
-Stable tag: 3.0
+Stable tag: 3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,7 +71,7 @@ Woocommerce, Stats dashboard, time tracking updates and more.
 
 == Changelog ==
 
-= 3.0 = 
+= 3.1 = 
 * **Fix:** Bad Activation Link
 * **Fix:** .live updates to Java
 
