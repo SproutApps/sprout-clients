@@ -12,7 +12,7 @@
 			<?php
 				$maxitems = 0;
 				include_once( ABSPATH . WPINC . '/feed.php' );
-				$rss = fetch_feed( 'https://sproutapps.co/feed/' ); // FUTURE use feedburner
+				$rss = fetch_feed( 'https://sproutinvoices.com/feed/' ); // FUTURE use feedburner
 			if ( ! is_wp_error( $rss ) ) :
 				$maxitems = $rss->get_item_quantity( 3 );
 				$rss_items = $rss->get_items( 0, $maxitems );
@@ -33,7 +33,7 @@
 					<?php endforeach; ?>
 				<?php endif; ?>
 			</div>
-			<a class="twitter-timeline" href="https://twitter.com/_sproutapps" data-widget-id="492426361349234688">Tweets by @_sproutapps</a>
+			<a class="twitter-timeline" href="https://twitter.com/@sproutinvoices" data-widget-id="492426361349234688">Tweets by @sproutinvoices</a>
 			<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 		</div>
 	</div>

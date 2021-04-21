@@ -146,7 +146,7 @@ function sc_purchase_link( $url = '', $campaign = 'sc-free' ) {
  */
 function sc_get_purchase_link( $url = '', $campaign = 'sc-free' ) {
 	if ( $url == '' ) {
-		$url = 'https://sproutapps.co/sprout-clients/';
+		$url = 'https://sproutinvoices.com/sprout-clients/';
 	}
 	$url = add_query_arg( array( 'utm_medium' => 'link', 'utm_campaign' => $campaign, 'utm_source' => urlencode( home_url() ) ), $url );
 	return apply_filters( 'sc_get_purchase_link', esc_url_raw( $url ) );
@@ -158,7 +158,7 @@ function sc_get_purchase_link( $url = '', $campaign = 'sc-free' ) {
  */
 function sc_get_sa_link( $url = '', $campaign = 'sc-free' ) {
 	if ( $url == '' ) {
-		$url = 'https://sproutapps.co/';
+		$url = 'https://sproutinvoices.com/';
 	}
 	$url = add_query_arg( array( 'utm_medium' => 'link', 'utm_campaign' => $campaign, 'utm_source' => urlencode( home_url() ) ), $url );
 	return apply_filters( 'sc_get_sa_link', esc_url_raw( $url ) );

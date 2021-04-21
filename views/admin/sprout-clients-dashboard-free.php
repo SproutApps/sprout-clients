@@ -20,13 +20,13 @@
 					</div>
 
 					<div class="activation_msg clearfix">
-						<?php printf( __( 'Generating a free license key is not required but takes seconds! Your email will be used to create a unique Sprout Apps license key that will enable future features (i.e. easy add-on installs from <a href="%s">https://sproutapps.co</a>).', 'sprout-invoices' ), sc_get_sa_link() ) ?></p>
+						<?php printf( __( 'Generating a free license key is not required but takes seconds! Your email will be used to create a unique Sprout Apps license key that will enable future features (i.e. easy add-on installs from <a href="%s">https://sproutinvoices.com</a>).', 'sprout-invoices' ), sc_get_sa_link() ) ?></p>
 					</div>
 				</div>
 			<?php endif ?>
 			<?php /**/ ?>
 
-			<div class="upgrade_message clearfix"><p><strong>Upgrade Discount Available:</strong> Write a <a href="https://wordpress.org/support/view/plugin-reviews/sprout-clients">plugin review</a> about this free version and <a href="<?php echo sc_get_sa_link( 'https://sproutapps.co/sprout-invoices/sprout-invoices-discount-code/', 'plugin-review' ) ?>">send us the link</a>.</p></div>
+			<div class="upgrade_message clearfix"><p><strong>Upgrade Discount Available:</strong> Write a <a href="https://wordpress.org/support/view/plugin-reviews/sprout-clients">plugin review</a> about this free version and <a href="<?php echo sc_get_sa_link( 'https://sproutinvoices.com/pricing/?_sa_d=si19BIGdiscount', 'plugin-review' ) ?>">send us the link</a>.</p></div>
 
 			<h2 class="headline_callout"><?php _e( 'Welcome to Sprout Clients' , 'sprout-invoices' ) ?></h2>
 
@@ -80,7 +80,7 @@
 				<h4><?php _e( 'Need help? Or an important feature?' , 'sprout-invoices' ); ?></h4>
 				<p><?php printf( __( "We want to make sure using Sprout Invoices is enjoyable and not a hassle. Sprout Apps has some pretty awesome <a href='%s'>support</a> and a budding <a href='%s'>knowledgebase</a> that will help you get anything resolved." , 'sprout-invoices' ), self::PLUGIN_URL.'/support/', self::PLUGIN_URL.'/support/knowledgebase/' ); ?></p>
 
-				<p><?php printf( "<a href='https://sproutapps.co/support/' target='_blank' class='button'>%s</a>", __( 'Support' , 'sprout-invoices' ) ); ?>&nbsp;<?php printf( "<a href='http://docs.sproutapps.co' target='_blank' class='button'>%s</a>", __( 'Documentation' , 'sprout-invoices' ) ); ?></p>
+				<p><?php printf( "<a href='https://sproutinvoices.com/support/' target='_blank' class='button'>%s</a>", __( 'Support' , 'sprout-invoices' ) ); ?>&nbsp;<?php printf( "<a href='http://docs.sproutinvoices.com' target='_blank' class='button'>%s</a>", __( 'Documentation' , 'sprout-invoices' ) ); ?></p>
 
 				<p><img class="footer_sa_logo" src="<?php echo SC_RESOURCES . 'admin/icons/sproutapps.png' ?>" /></p>
 

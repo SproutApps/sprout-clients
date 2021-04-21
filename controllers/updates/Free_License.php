@@ -10,7 +10,7 @@
 class SC_Free_License extends SC_Controller {
 	const LICENSE_KEY_OPTION = 'sc_license_key';
 	const LICENSE_UID_OPTION = 'sc_uid';
-	const API_CB = 'https://sproutapps.co/';
+	const API_CB = 'https://sproutinvoices.com/';
 	protected static $license_key;
 	protected static $uid;
 

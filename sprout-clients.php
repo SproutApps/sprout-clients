@@ -1,11 +1,11 @@
 <?php
 /*
  * Plugin Name: Sprout Clients
- * Plugin URI: https://sproutapps.co/sprout-clients/
+ * Plugin URI: https://sproutinvoices.com/sprout-clients/
  * Description: Contact relationship management to increase productivity in gaining clients and business relationships.
  * Author: Sprout Apps
- * Version: 2.3
- * Author URI: https://sproutapps.co
+ * Version: 3.1
+ * Author URI: https://sproutinvoices.com
  * Text Domain: sprout-invoices
  * Domain Path: languages
 */

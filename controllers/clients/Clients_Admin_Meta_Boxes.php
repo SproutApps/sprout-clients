@@ -383,6 +383,6 @@ class SC_Clients_Admin_Meta_Boxes extends SC_Clients {
 	}
 
 	public static function show_si_ad_meta_box() {
-		printf( '<p class="description help_block"><a href="%s"><img src="%s" width="100%%" height="auto" /></a><br/>%s</p>', 'https://sproutapps.co/sprout-invoices/', SC_RESOURCES . 'admin/img/invoice.png', __( 'Check <a href="https://sproutapps.co/sprout-invoices/">Sprout Invoices</a> out when you have a chance, it works pretty awesome with Sprout Clients.', 'sprout-invoices' ) );
+		printf( '<p class="description help_block"><a href="%s"><img src="%s" width="100%%" height="auto" /></a><br/>%s</p>', 'https://sproutinvoices.com/sprout-invoices/', SC_RESOURCES . 'admin/img/invoice.png', __( 'Check <a href="https://sproutinvoices.com/sprout-invoices/">Sprout Invoices</a> out when you have a chance, it works pretty awesome with Sprout Clients.', 'sprout-invoices' ) );
 	}
 }
