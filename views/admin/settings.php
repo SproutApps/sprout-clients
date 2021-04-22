@@ -3,7 +3,6 @@
 	$page = ( ! isset( $_GET['tab'] ) ) ? $page : self::TEXT_DOMAIN.'/'.$_GET['tab'] ; ?>
 <div id="<?php echo $page ?>" class="wrap">
 
-	<?php screen_icon(); ?>
 	<h2 class="nav-tab-wrapper">
 		<?php do_action( 'sprout_settings_tabs' ); ?>
 	</h2>
