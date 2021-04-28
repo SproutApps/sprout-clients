@@ -27,7 +27,7 @@ abstract class Sprout_Clients {
 	/**
 	 * Application text-domain
 	 */
-	const PLUGIN_URL = 'https://sproutapps.co/sprout-clients/';
+	const PLUGIN_URL = 'https://sproutinvoices.com/sprout-clients/';
 	/**
 	 * Current version. Should match sprout-invoices.php plugin version.
 	 */

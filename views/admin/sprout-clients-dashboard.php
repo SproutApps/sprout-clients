@@ -80,9 +80,9 @@
 			</div>
 			<div class="last-feature">
 				<h4><?php _e( 'Need help? Or an important feature?' , 'sprout-invoices' ); ?></h4>
-				<p><?php printf( __( "We want to make sure using Sprout Invoices is enjoyable and not a hassle. Sprout Apps has some pretty awesome <a href='%s'>support</a> and a budding <a href='%s'>knowledgebase</a> that will help you get anything resolved." , 'sprout-invoices' ), self::PLUGIN_URL.'/support/', self::PLUGIN_URL.'/support/knowledgebase/' ); ?></p>
+				<p><?php printf( __( "We want to make sure using Sprout Invoices is enjoyable and not a hassle. Sprout Apps has some pretty awesome <a href='%s'>support</a> and a budding <a href='%s'>knowledgebase</a> that will help you get anything resolved." , 'sprout-invoices' ),  'https://sproutinvoices.com/support/my-tickets/', 'https://sproutinvoices.com/sprout-clients/' ); ?></p>
 
-				<p><?php printf( "<a href='https://sproutapps.co/support/' target='_blank' class='button'>%s</a>", __( 'Support' , 'sprout-invoices' ) ); ?>&nbsp;<?php printf( "<a href='http://docs.sproutapps.co' target='_blank' class='button'>%s</a>", __( 'Documentation' , 'sprout-invoices' ) ); ?></p>
+				<p><?php printf( "<a href='https://sproutinvoices.com/support/' target='_blank' class='button'>%s</a>", __( 'Support' , 'sprout-invoices' ) ); ?>&nbsp;<?php printf( "<a href='http://docs.sproutinvoices.com' target='_blank' class='button'>%s</a>", __( 'Documentation' , 'sprout-invoices' ) ); ?></p>
 
 				<p><img class="footer_sa_logo" src="<?php echo SC_RESOURCES . 'admin/icons/sproutapps.png' ?>" /></p>
 
