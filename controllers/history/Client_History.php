@@ -101,7 +101,8 @@ class SC_Client_History extends SC_Controller {
 
 	}
 
-	public static function add_records_to_client_history( $history = array(), Sprout_Client $client, $type = '' ) {
+	public static function add_records_to_client_history( $history, Sprout_Client $client, $type = '' ) {
+		$history = $history ?? array();
 		$records = SC_Record::get_records_by_association( $client->get_id() );
 		if ( ! empty( $records ) ) {
 
