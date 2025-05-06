@@ -25,8 +25,8 @@ class SC_Invoices_History extends SC_Client_History {
 		add_filter( 'client_history', array( __CLASS__, 'add_records_to_client_history' ), 10, 3 );
 	}
 
-	public static function add_records_to_client_history( $history = array(), Sprout_Client $client, $type = '' ) {
-
+	public static function add_records_to_client_history( $history, Sprout_Client $client, $type = '' ) {
+		$history = $history ?? array();
 		$records = array();
 		$invoices = $client->get_invoices();
 		if ( ! empty( $invoices ) ) {

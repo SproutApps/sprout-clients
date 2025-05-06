@@ -237,6 +237,13 @@ class SC_Clients_Admin_Meta_Boxes extends SC_Clients {
 			'country' => isset( $_POST['sa_metabox_country'] ) ? $_POST['sa_metabox_country'] : '',
 		);
 
+		// Sanitize the address fields.
+		foreach ( $address as $key => $value ) {
+			$address[ $key ] = self::esc__( $value );
+		}
+		// Sanitize the website field.
+		$website = self::esc__( $website );
+
 		$client = Sprout_Client::get_instance( $post_id );
 		$client->set_website( $website );
 		$client->set_address( $address );

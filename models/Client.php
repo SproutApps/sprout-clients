@@ -33,6 +33,7 @@ class Sprout_Client extends SC_Post_Type {
 
 
 	public static function init() {
+		self::disable_jit_notices();
 		// register Client post type
 		$post_type_args = array(
 			'public' => false,
@@ -68,6 +69,26 @@ class Sprout_Client extends SC_Post_Type {
 			'hierarchical' => false,
 		);
 		self::register_taxonomy( self::STATUS_TAXONOMY, array( self::POST_TYPE ), $singular, $plural, $taxonomy_args );
+	}
+
+	/**
+	 * Disable JIT Notices
+	 *
+	 * @since 1.6.17
+	 */
+	public static function disable_jit_notices() {
+		add_filter(
+			'doing_it_wrong_trigger_error',
+			function ( $doing_it_wrong, $function_name, $message ) {
+				// if the function is _load_textdomain_just_in_time, return false to prevent the error.
+				if ( '_load_textdomain_just_in_time' === $function_name && false !== strpos( $message, 'sprout-invoices' ) ) {
+					return false;
+				}
+				return $doing_it_wrong;
+			},
+			10,
+			4
+		);
 	}
 
 	public static function client_role() {

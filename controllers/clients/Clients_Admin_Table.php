@@ -248,7 +248,8 @@ class SC_Clients_Admin_Table extends SC_Clients {
 	 * @param  int $id
 	 * @return string
 	 */
-	public static function user_column_display( $empty = '', $column_name, $id ) {
+	public static function user_column_display( $empty, $column_name, $id = 0 ) {
+		$empty = $empty ?? '';
 		switch ( $column_name ) {
 			case 'contact':
 				$client_ids = Sprout_Client::get_clients_by_user( $id );

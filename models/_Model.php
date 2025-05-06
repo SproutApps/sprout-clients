@@ -297,7 +297,7 @@ abstract class SC_Post_Type extends Sprout_Clients {
 		trigger_error( __CLASS__.' may not be cloned', E_USER_ERROR );
 	}
 
-	final protected function __sleep() {
+	final public function __sleep() {
 		// cannot be serialized
 		trigger_error( __CLASS__.' may not be serialized', E_USER_ERROR );
 	}
